@@ -16,21 +16,21 @@ const {loginHandler} = require('../handlers/authHandler');
 const {protectedRouteHandler} = require('../handlers/authHandler');
 const {deleteUserHandler} = require('../handlers/deleteUserHandler');
 
-router.get("/products", getAllPropertiesHandler);
-router.get("/products/:id", getPropertyByIdHandler);
+router.get("/properties", getAllPropertiesHandler);
+router.get("/properties/:id", getPropertyByIdHandler);
 router.get("/users", getUsersHandler);
 
 router.post('/login', loginHandler);
 router.get('/admin', authenticateToken, protectedRouteHandler);
 
-router.post("/products", postPropertyHandler);
+router.post("/properties", postPropertyHandler);
 router.post("/users", postUserHandler);
 
-router.put("/products/:id", putPropertyHandler);
+router.put("/properties/:id", putPropertyHandler);
 router.put("/users/:id", putUserHandler);
 
 
-router.delete("/product/:id", deletePropertyHandler);
+router.delete("/properties/:id", deletePropertyHandler);
 router.delete("/user/:id", deleteUserHandler);
 
 module.exports = router;

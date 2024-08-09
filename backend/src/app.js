@@ -20,8 +20,8 @@ server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 
-// Configuración CORS    //https://www.saksa.com.ar   http://localhost:3000   --omit=dev  https://saksa-production.up.railway.app/
-const allowedOrigins = ['https://www.saksa.com.ar', 'http://localhost:3000'];
+// Configuración CORS    //https://galindosa.vercel.app/   http://localhost:3000   --omit=dev  
+const allowedOrigins = ['https://galindosa.vercel.app/', 'http://localhost:3000'];
 server.use((req, res, next) => {
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {

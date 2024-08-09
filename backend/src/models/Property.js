@@ -1,8 +1,6 @@
 const { DataTypes } = require("sequelize");
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+
 module.exports = (sequelize) => {
-  // defino el modelo
   sequelize.define("Property", {
     id: {
       type: DataTypes.UUID,
@@ -10,15 +8,44 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    productName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    images: {
+    slug: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    categories: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
+    },
+    img: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
+    present_images: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
+    },
+    carousel_images: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
+    },
+    blueprints: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
     },
     description: {
+      type: DataTypes.STRING(2080),
+      allowNull: true,
+    },
+    intro_description: {
       type: DataTypes.STRING(2080),
       allowNull: true,
     },
@@ -32,7 +59,12 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: "",
     },
-    units_vailable: {
+    work_percentage: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
+    units_available: {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "",
@@ -62,12 +94,12 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: "",
     },
-    lat: {
+    latitude: {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "",
     },
-    long: {
+    longitude: {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "",
@@ -86,6 +118,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "",
+    },
+    sections: {
+      type: DataTypes.ARRAY(DataTypes.JSONB),
+      allowNull: true,
+      defaultValue: [],
     },
   });
 };
