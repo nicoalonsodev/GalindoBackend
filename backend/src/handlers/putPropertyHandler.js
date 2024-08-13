@@ -7,17 +7,17 @@ const putPropertyHandler = async (req, res) => {
   const {
     name,
     description,
-    intro_description,
+    introDescription,
     status,
     categories,
     blueprints,
     img,
-    present_images,
-    carousel_images,
-    init_date,
-    finished_date,
-    units_available,
-    total_units,
+    presentImages,
+    carouselImages,
+    initDate,
+    finishedDate,
+    unitsVailable,
+    totalUnits,
     zone,
     surface,
     address,
@@ -28,22 +28,22 @@ const putPropertyHandler = async (req, res) => {
     characteristics,
     video,
     sections,
-    work_percentage
+    workPercentage
   } = req.body;
   const updatedFields = {
     name,
     description,
-    intro_description,
+    intro_description: introDescription,
     status,
     categories,
     blueprints,
     img,
-    present_images,
-    carousel_images,
-    init_date,
-    finished_date,
-    units_available,
-    total_units,
+    present_images: presentImages,
+    carousel_images: carouselImages,
+    init_date: initDate,
+    finished_date: finishedDate,
+    units_available: unitsVailable,
+    total_units: totalUnits,
     zone,
     surface,
     address,
@@ -54,7 +54,7 @@ const putPropertyHandler = async (req, res) => {
     characteristics,
     video,
     sections,
-    work_percentage
+    work_percentage: workPercentage
   };
   try {
     await putPropertyController(id, updatedFields);
