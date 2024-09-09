@@ -103,11 +103,11 @@ const putPropertyController = async (id, updatedFields) => {
     }
     if (amenities) {
       if (Array.isArray(amenities) && amenities.length > 0) {
-        if (typeof amenities[0] === 'object' && amenities[0].id) {
-          property.amenities = amenities.map(amenity => amenity.id.toString());
-        } else {
+        // if (typeof amenities[0] === 'object' && amenities[0].id) {
+        //   property.amenities = amenities.map(amenity => amenity.id.toString());
+        // } else {
           property.amenities = amenities;
-        }
+        // }
       }
     }
     if (characteristics) {
