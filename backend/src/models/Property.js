@@ -89,11 +89,11 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: "",
     },
-    rooms: {
-      type: DataTypes.ARRAY(DataTypes.JSONB),
-      allowNull: false,
-      defaultValue: [],
-    },
+    // rooms: {
+    //   type: DataTypes.ARRAY(DataTypes.JSONB),
+    //   allowNull: false,
+    //   defaultValue: [],
+    // },
     latitude: {
       type: DataTypes.STRING,
       allowNull: false,
