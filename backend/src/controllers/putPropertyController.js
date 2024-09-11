@@ -2,8 +2,8 @@ const { Property } = require("../db");
 const createSlug = (name) => {
   return name
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-') // Reemplaza caracteres no alfanuméricos por guiones
-    .replace(/(^-|-$)+/g, '');   // Elimina guiones al principio y al final
+    .replace(/[^a-z0-9]+/g, "-") // Reemplaza caracteres no alfanuméricos por guiones
+    .replace(/(^-|-$)+/g, ""); // Elimina guiones al principio y al final
 };
 const putPropertyController = async (id, updatedFields) => {
   try {
@@ -37,7 +37,7 @@ const putPropertyController = async (id, updatedFields) => {
       characteristics,
       video,
       sections,
-      work_percentage
+      work_percentage,
     } = updatedFields;
 
     let slug;
@@ -93,7 +93,9 @@ const putPropertyController = async (id, updatedFields) => {
       property.address = address;
     }
     if (rooms) {
-      property.rooms = rooms;
+      if (Array.isArray(rooms) && rooms.length > 0) {
+        property.rooms = rooms;
+      }
     }
     if (latitude) {
       property.latitude = latitude;
@@ -102,13 +104,12 @@ const putPropertyController = async (id, updatedFields) => {
       property.longitude = longitude;
     }
     if (amenities) {
-     
-       if (Array.isArray(amenities) && amenities.length > 0) {
+      if (Array.isArray(amenities) && amenities.length > 0) {
         // if (typeof amenities[0] === 'object' && amenities[0].id) {
         //   property.amenities = amenities.map(amenity => amenity.id.toString());
         // } else {
-          property.amenities = amenities;
-         }
+        property.amenities = amenities;
+      }
       // }
     }
     if (characteristics) {
@@ -129,7 +130,7 @@ const putPropertyController = async (id, updatedFields) => {
     return property;
   } catch (error) {
     console.error("Error al actualizar el Property:", error);
-    throw error; 
+    throw error;
   }
 };
 

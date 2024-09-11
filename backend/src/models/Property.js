@@ -90,7 +90,7 @@ module.exports = (sequelize) => {
       defaultValue: "",
     },
     rooms: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.ARRAY(DataTypes.JSONB),
       allowNull: false,
       defaultValue: [],
     },
